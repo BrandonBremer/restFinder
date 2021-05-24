@@ -39,7 +39,7 @@ const styles = {
       map.resize();
     });
   };
-/*
+
    if (!map) initializeMap({ setMap, mapContainer });
  if(map){
     var markerHeight = 50, markerRadius = 10, linearOffset = 25;
@@ -99,7 +99,7 @@ const styles = {
         .setHTML(restData.results[4].name)
         .setMaxWidth("300px")
         .addTo(map);
-  }*/
+  }
 })
 const update =() =>
 {
