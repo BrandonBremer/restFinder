@@ -40,7 +40,7 @@ const styles = {
     });
   };
 
-   if (!map) initializeMap({ setMap, mapContainer });
+ /*  if (!map) initializeMap({ setMap, mapContainer });
  if(map){
     var markerHeight = 50, markerRadius = 10, linearOffset = 25;
 
@@ -99,7 +99,7 @@ const styles = {
         .setHTML(restData.results[4].name)
         .setMaxWidth("300px")
         .addTo(map);
-  }
+  }*/
 })
 const update =() =>
 {
@@ -112,58 +112,36 @@ const update =() =>
 }
 const sortByDist = (e) =>
 {   
-  //  e.preventDefault();
-  //  let dataSet = data;
-   // alert(dataSet.results[0].name);
+
   var dataSet = data;
   if(typeof  dataSet != "undefined")
   dataSet=  dataSet.sort(function(a, b) {
         return b.geometry.location.lat - a.geometry.location.lat;
       });
       setData(dataSet);
-     // alert(dataSet[0].name)
-   //  n=0;
-
- //  setData(dataSet);\
-
-    
 }
 const sortByRating = (e) =>
 {   
-  //  e.preventDefault();
-  //  let dataSet = data;
-   // alert(dataSet.results[0].name);
+
   var dataSet = data;
   if(typeof  dataSet != "undefined")
   dataSet=  dataSet.sort(function(a, b) {
         return b.rating - a.rating;
       });
-      setData(dataSet);
-     // alert(dataSet[0].name)
-   //  n=0;
-
- //  setData(dataSet);\
-
-    
+      setData(dataSet);    
 }
 const sortByPrice = (e) =>
 {
-   // e.preventDefault();
     var dataSet = data;
     if(typeof dataSet != "undefined")
     dataSet=  dataSet.sort(function(a, b) {
         return b.price_level - a.price_level;
       }); 
      setData(dataSet);
-    //  alert(dataSet[0].name)
- //  n=0;
 }
 const sortByName = (e) =>
 {
     var dataSet = data;
-   // e.preventDefault();
-   // var dataSet = data;
-    //if(typeof  data.results != "undefined")
     if(typeof dataSet != "undefined")
     dataSet= dataSet.sort(function(a, b) {
         if(a.name<b.name)
@@ -181,7 +159,7 @@ return (
 <div>
 
 
-
+<div ref={el => (mapContainer.current = el)}style={styles} />
   <Button variant="contained" color="secondary" onClick ={()=>update()}>Update Results</Button>
   <Button variant="contained" color="secondary" onClick = {()=>sortByRating()}>Sort By Rating</Button>
   <Button variant="contained" color="secondary"onClick = {()=>sortByPrice()}>Sort By Price</Button>
@@ -379,7 +357,7 @@ return (
         </Card >
     ): (
       <div></div>
-    )} <div ref={el => (mapContainer.current = el)}style={styles} />
+    )} 
 
 </div>
 )
